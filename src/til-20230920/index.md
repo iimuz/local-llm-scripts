@@ -12,12 +12,14 @@ lastmod: 2023-09-20
 以下は、実行を想定しているスクリプトのファイル名と、スクリプトの簡易説明のみ記載します。
 スクリプトのオプションは`python hoge.py -h`のようにしてオプションを出力して確認してください。
 
+- elyza.py: [ELYZA のモデル](https://huggingface.co/elyza/ELYZA-japanese-Llama-2-7b-instruce)を利用した文章生成スクリプト。
+
 ## 環境構築
 
 ```sh
 # torch cu117版を指定してますが、環境に合わせて適切なバージョンを指定してください。
 # 動作確認したバージョンを固定で導入する場合
-$ pip install -r requirements.txt --index-url https://download.pytorch.org/whl/cu117
+$ pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu117
 # or
 # 最新のバージョンを確認して導入する場合
 $ pip install -e . --extra-index-url https://download.pytorch.org/whl/cu117
@@ -27,10 +29,10 @@ $ pip install -e . --extra-index-url https://download.pytorch.org/whl/cu117
 
 ```sh
 # 動作確認したバージョンを固定で導入する場合
-$ pip install -r requirements-dev.txt --index-url https://download.pytorch.org/whl/cu117
+$ pip install -r requirements-dev.txt --extra-index-url https://download.pytorch.org/whl/cu117
 # or
 # 最新のバージョンを確認して導入する場合
-$ pip install -e . -c requirements.txt --extra-index-url https://download.pytorch.org/whl/cu117
+$ pip install -e .[dev] --extra-index-url https://download.pytorch.org/whl/cu117
 ```
 
 ### 実行環境の更新
@@ -47,7 +49,7 @@ $ pip freeze > requirements.txt
 
 # 開発環境の構築
 # `-c`オプションでrequirements.txtの内容は一致させる
-$ pip install -e .[dev] -c requirements.txt --extra-index-url https://download.pytorch.org/whl/cu117
+$ pip install -e .[dev] --extra-index-url https://download.pytorch.org/whl/cu117
 $ pip freeze > requirements-dev.txt  # requirements.txtと同様に処理
 ```
 
