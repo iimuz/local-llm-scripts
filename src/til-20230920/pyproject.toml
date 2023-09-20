@@ -2,13 +2,17 @@
 authors = [{name = "iimuz", email = "iz.primary.story+github@gmail.com"}]
 description = "local llm scripts."
 license = {file = "LICENSE"}
-name = "local-llm-scripts"
+name = "local_llm_scripts"
 readme = "README.md"
 requires-python = ">=3.10"
 urls = {repository = "https://github.com/iimuz/til/src/til-20230917"}
 version = "0.1.0"
 
-dependencies = []
+dependencies = [
+  "pydantic",
+  "torch",
+  "transformers",
+]
 
 [tools.setuptools.package-dir]
 stable_diffusion_script = "src"
