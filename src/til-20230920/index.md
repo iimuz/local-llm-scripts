@@ -1,7 +1,7 @@
 ---
 title: ローカルで動くLLMを試すためのスクリプト
 date: 2023-09-20
-lastmod: 2023-09-20
+lastmod: 2023-11-04
 ---
 
 ## 概要
@@ -13,6 +13,7 @@ lastmod: 2023-09-20
 スクリプトのオプションは`python hoge.py -h`のようにしてオプションを出力して確認してください。
 
 - elyza.py: [ELYZA のモデル](https://huggingface.co/elyza/ELYZA-japanese-Llama-2-7b-instruce)を利用した文章生成スクリプト。
+- llm-jp.py: [llm-jp](https://huggingface.co/llm-jp/llm-jp-13b-instruct-full-jaster-dolly-oasst-v1.0)を利用した文章生成スクリプト。モデルの読み込みに非常に時間がかかった。
 
 ## 環境構築
 
