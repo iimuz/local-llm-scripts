@@ -10,12 +10,17 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  // Language: markdown
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // Language: json
+  "[json][jsonc][jsonl]": {
+    "editor.defaultFormatter": "dprint.dprint",
     "editor.formatOnSave": true
   },
-  // python
+  // Language: markdown
+  "[markdown]": {
+    "editor.defaultFormatter": "dprint.dprint",
+    "editor.formatOnSave": true
+  },
+  // Language: python
   "autoDocstring.docstringFormat": "numpy",
   "python.languageServer": "Pylance",
   "[python]": {
@@ -25,5 +30,10 @@
       "source.fixAll.ruff": "explicit",
       "source.organizeImports.ruff": "explicit"
     }
+  },
+  // Language: toml
+  "[toml]": {
+    "editor.defaultFormatter": "dprint.dprint",
+    "editor.formatOnSave": true
   }
 }
