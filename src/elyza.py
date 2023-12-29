@@ -3,6 +3,7 @@
 Notes
 -----
 実行方法: `elyza.py --device=cuda -vv --loop -n=7b-fast`
+
 """
 import logging
 import random
@@ -13,11 +14,9 @@ from pathlib import Path
 
 import numpy as np
 import torch
+from internal import data_directory, log_settings
 from pydantic import BaseModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
-
-import internal.data_directory as data_directory
-import internal.log_settings as log_settings
 
 _logger = logging.getLogger(__name__)
 # 利用想定しているモデル名とパス
@@ -127,7 +126,7 @@ def _parse_args() -> _RunConfig:
         "-n",
         "--network-name",
         choices=list(_MODEL_ID.keys()),
-        default=list(_MODEL_ID.keys())[0],
+        default=next(iter(_MODEL_ID.keys())),
         help="利用するモデル名.",
     )
     parser.add_argument(
@@ -144,16 +143,19 @@ def _parse_args() -> _RunConfig:
     )
 
     parser.add_argument(
-        "-v", "--verbose", action="count", default=0, help="詳細メッセージのレベルを設定."
+        "-v",
+        "--verbose",
+        action="count",
+        default=0,
+        help="詳細メッセージのレベルを設定.",
     )
 
     args = parser.parse_args()
-    config = _RunConfig(**vars(args))
 
-    return config
+    return _RunConfig(**vars(args))
 
 
-def _set_seed(seed_value: int):
+def _set_seed(seed_value: int) -> None:
     """Set seed for reproducibility."""
     random.seed(seed_value)
     np.random.seed(seed_value)
@@ -164,6 +166,6 @@ def _set_seed(seed_value: int):
 if __name__ == "__main__":
     try:
         _main()
-    except Exception as e:
-        _logger.exception(e)
+    except Exception:
+        _logger.exception("Unhandled error occurred.")
         sys.exit(1)

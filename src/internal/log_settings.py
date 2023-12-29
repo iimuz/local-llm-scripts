@@ -6,14 +6,24 @@ from pathlib import Path
 
 
 def get_loglevel_from_verbosity(verbosity: int) -> int:
-    loglevel = {
+    """ログレベルを対応する冗長度レベルに変換します.
+
+    Parameters
+    ----------
+    verbosity : int
+        冗長度のレベル。0が最も冗長度が低く、3が最も冗長度が高い。
+
+    Returns
+    -------
+    int
+        対応するログレベル。
+    """
+    return {
         0: logging.ERROR,
         1: logging.WARNING,
         2: logging.INFO,
         3: logging.DEBUG,
     }.get(verbosity, logging.DEBUG)
-
-    return loglevel
 
 
 def setup_lib_logger(filepath: Path | None, loglevel: int) -> None:
@@ -31,7 +41,7 @@ def setup_lib_logger(filepath: Path | None, loglevel: int) -> None:
     -----
     ファイル出力とコンソール出力を行うように設定する。
     """
-    lib_logger = logging.getLogger("src")
+    lib_logger = logging.getLogger("internal")
     setup_logger(logger=lib_logger, filepath=filepath, loglevel=loglevel)
 
 
@@ -40,6 +50,9 @@ def setup_logger(logger: Logger, filepath: Path | None, loglevel: int) -> None:
 
     Parameters
     ----------
+    logger : Logger
+        設定を適用するロガー.
+
     filepath : Path | None
         ログ出力するファイルパス. Noneの場合はファイル出力しない.
 
