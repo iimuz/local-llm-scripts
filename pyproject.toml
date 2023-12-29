@@ -15,18 +15,12 @@ dependencies = [
 ]
 
 [tools.setuptools.package-dir]
-stable_diffusion_script = "src"
+llm_scripts = "src"
 
 [project.optional-dependencies]
 dev = [
-  "black",
-  "flake8",
-  "flake8-black",
-  "flake8-bugbear",
-  "flake8-docstrings",
-  "flake8-isort",
-  "isort",
   "mypy",
+  "ruff",
 ]
 test = ["pytest"]
 
