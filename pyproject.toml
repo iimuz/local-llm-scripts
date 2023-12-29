@@ -29,3 +29,26 @@ requires = ["setuptools>=68", "wheel"]
 
 [tool.isort]
 profile = "black"
+
+[tool.ruff]
+# same as black
+line-length = 88
+indent-width = 4
+
+[tool.ruff.lint]
+# Allow lint for all enabled rules
+select = ["ALL"]
+ignore = [
+  "D211",  # `one-blank-line-before-class` (D203) and `no-blank-line-before-class` (D211) are incompatible
+  "D212",  # `multi-line-summary-first-line` (D212) and `multi-line-summary-second-line` (D213) are incompatible.
+]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.format]
+quote-style = "double"  # Like Black, use double quotes for strings.
+indent-style = "space"  # Like Black, indent with spaces, rather than tabs.
+skip-magic-trailing-comma = false  # Like Black, respect magic trailing commas.
+line-ending = "auto"  # Like Black, automatically detect the appropriate line ending.
