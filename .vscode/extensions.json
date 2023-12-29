@@ -13,6 +13,8 @@
     "ms-python.mypy-type-checker",
     "ms-python.python",
     "ms-python.vscode-pylance",
-    "njpwerner.autodocstring"
+    "njpwerner.autodocstring",
+    // TOML
+    "tamasfe.even-better-toml"
   ]
 }
