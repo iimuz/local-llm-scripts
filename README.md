@@ -19,7 +19,7 @@ lastmod: 2023-12-30
 
 事前に下記が利用できるように環境を設定してください。
 
-- [node.js](https://nodejs.org/en)
+- [node.js](https://nodejs.org/en): 開発環境のlinterに利用します。
 - [python](https://nodejs.org/en)
 - [task](https://taskfile.dev/): タスクランナーとして利用します。
 
