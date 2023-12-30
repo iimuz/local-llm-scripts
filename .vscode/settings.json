@@ -35,5 +35,10 @@
   "[toml]": {
     "editor.defaultFormatter": "dprint.dprint",
     "editor.formatOnSave": true
+  },
+  // Language: yaml
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
   }
 }
