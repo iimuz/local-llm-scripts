@@ -1,0 +1,38 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "cmds",
+    "cuda",
+    "dotenv",
+    "dprint",
+    "dtype",
+    "ELYZA",
+    "elyza",
+    "hoge",
+    "iimuz",
+    "jaster",
+    "lastmod",
+    "levelname",
+    "mypy",
+    "oasst",
+    "pydantic",
+    "pytest",
+    "setuptools",
+    "unfixable",
+    "venv",
+    "VENV"
+  ],
+  "dictionaries": [],
+  "ignorePaths": [
+    "**/.git/**",
+    "**/.mypy_cache/**",
+    "**/.ruff_cache/**",
+    "**/.venv/**",
+    "**/*.egg-info/**",
+    "**/node_modules/**",
+    "**/package-lock.json",
+    "**/requirements.txt",
+    "**/requirements-dev.txt"
+  ]
+}
