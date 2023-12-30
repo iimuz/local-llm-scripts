@@ -1,7 +1,7 @@
 ---
 title: ローカルで動くLLMを試すためのスクリプト
 date: 2023-09-20
-lastmod: 2023-11-04
+lastmod: 2023-12-30
 ---
 
 ## 概要
@@ -17,41 +17,27 @@ lastmod: 2023-11-04
 
 ## 環境構築
 
-```sh
-# torch cu117版を指定してますが、環境に合わせて適切なバージョンを指定してください。
-# 動作確認したバージョンを固定で導入する場合
-$ pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu117
-# or
-# 最新のバージョンを確認して導入する場合
-$ pip install -e . --extra-index-url https://download.pytorch.org/whl/cu117
-```
+事前に下記が利用できるように環境を設定してください。
 
-### 開発環境構築
+- [node.js](https://nodejs.org/en): 開発環境のlinterに利用します。
+- [python](https://nodejs.org/en)
+- [task](https://taskfile.dev/): タスクランナーとして利用します。
+
+仮想環境などの構築は下記のコマンドで実行します。
 
 ```sh
-# 動作確認したバージョンを固定で導入する場合
-$ pip install -r requirements-dev.txt --extra-index-url https://download.pytorch.org/whl/cu117
-# or
-# 最新のバージョンを確認して導入する場合
-$ pip install -e .[dev] --extra-index-url https://download.pytorch.org/whl/cu117
-```
-
-### 実行環境の更新
-
-既存の venv 環境を削除後に下記のコマンドで環境を構築する。
-
-```sh
-$ pip install -e . --extra-index-url https://download.pytorch.org/whl/cu117
-$ pip freeze > requirements.txt
-# requirements.txtに対して下記の変更を実施
-#
-# - pytorchのcudaバージョン指定を削除
-# - `-e`で指定されている行を削除
-
-# 開発環境の構築
-# `-c`オプションでrequirements.txtの内容は一致させる
-$ pip install -e .[dev] --extra-index-url https://download.pytorch.org/whl/cu117
-$ pip freeze > requirements-dev.txt  # requirements.txtと同様に処理
+# 実行だけできればよい場合
+task init
+# 開発環境もインストールする場合
+task init-dev
 ```
 
 ## Tips
+
+### タスク一覧
+
+実行可能なタスク一覧は下記のコマンドで確認してください。
+
+```sh
+task -l
+```
