@@ -20,7 +20,7 @@ dotenv: [".env"]
 tasks:
   # 初期環境構築用タスク
   init:
-    desc: Intialize project.
+    desc: Initialize project.
     deps:
       - clean
     cmds:
@@ -28,7 +28,7 @@ tasks:
       - "{{.PYTHON}} -m pip install -r requirements.txt {{.EXTRA_INDEX_URL}}"
       - npm install
   init-dev:
-    desc: Intialize project for developer.
+    desc: Initialize project for developer.
     deps:
       - clean
     cmds:
@@ -46,13 +46,14 @@ tasks:
   lint:
     desc: Lint files.
     cmds:
-      - ruff check .
+      - "{{.PYTHON}} -m ruff check ."
       - dprint check
       - npx prettier --check "**/*.{yml,yaml}"
+      - npx cspell lint .
   format:
     desc: Format files.
     cmds:
-      - ruff format .
+      - "{{.PYTHON}} -m ruff format ."
       - dprint fmt
       - npx prettier --write "**/*.{yml,yaml}"
 
