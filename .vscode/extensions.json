@@ -4,8 +4,9 @@
     "EditorConfig.EditorConfig",
     // Docker
     "ms-azuretools.vscode-docker",
-    // Formatter
+    // Linter, Formatter
     "dprint.dprint", // json, markdown, toml
+    "streetsidesoftware.code-spell-checker", // spell checker
     // Markdown
     "DavidAnson.vscode-markdownlint",
     "lpubsppop01.vscode-auto-timestamp", // frontmatterの時刻の自動更新
